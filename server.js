@@ -7,6 +7,7 @@ const session = require('express-session');
 const passport = require('passport');
 
 //routers requires here
+const todoRouter = require('./routes/todo_router');
 
 const app = express();
 require('dotenv').config();
@@ -27,13 +28,13 @@ app.listen(PORT, () => {
 });
 
 app.get('/', (req, res) => {
-  res.json({
+  res.render('index',{
     appName: 'ToDos',
   });
 });
 
 //app.use routers here
-
+app.use('/todos',todoRouter);
 
 app.use('*', (req, res) => {
   res.status(404).send({

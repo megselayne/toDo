@@ -11,8 +11,8 @@ class ToDo {
   static getAll() {
     return db
       .manyOrNone('SELECT * FROM to_dos ORDER BY id ASC')
-      .then((to_dos) => {
-        return animals.map((todo) => {
+      .then((todos) => {
+        return todos.map((todo) => {
           return new this(todo);
         });
       });

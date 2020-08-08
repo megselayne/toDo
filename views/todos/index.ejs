@@ -1,0 +1,12 @@
+<%- include('../partials/boilerplate') %>
+    <div>
+        <% data.todos.forEach(element => { %>
+            <div>
+                <h3><%= element.title %></h3>
+            </div>
+        <% }) %>
+    </div>
+
+
+
+<%- include('../partials/end') %>
