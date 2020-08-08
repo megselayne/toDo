@@ -1,5 +1,6 @@
 const express = require('express');
 const todoRouter = express.Router();
+const authHelpers = require('../services/auth/auth-helpers');
 
 const todoController = require('../controllers/todo_controller');
 
@@ -9,7 +10,7 @@ todoRouter.get('/:id([0-9]+)', todoController.show, (req,res) =>{
         todo: res.locals.todo,
     });
 });
-todoRouter.get('/add', (req, res) =>{
+todoRouter.get('/add', authHelpers.loginRequired,(req, res) =>{
     res.render('todos/add');
 })
 todoRouter.post('/', todoController.create);
@@ -18,8 +19,8 @@ todoRouter.get('/:id([0-9])+/edit', todoController.show, (req, res) =>{
         todo: res.locals.todo,
     });
 });
-todoRouter.put('/:id', todoController.update);
-todoRouter.delete('/:id([0-9]+)', todoController.destroy);
+todoRouter.put('/:id', authHelpers.loginRequired, todoController.update);
+todoRouter.delete('/:id([0-9]+)', authHelpers.loginRequired, todoController.destroy);
 
 
 
