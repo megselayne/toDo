@@ -1,8 +1,10 @@
 <%- include('../partials/boilerplate') %>
-    <div>
+    <div class='container'>
         <% data.todos.forEach(element => { %>
-            <div>
-                <h3><%= element.title %></h3>
+            <div class='todo'>
+                <h1 class='todo-title'><%= element.title %></h1>
+                <h2 class='todo-sub'><%= element.status %></h2>
+                <h3><%= element.category %></h3>
             </div>
         <% }) %>
     </div>

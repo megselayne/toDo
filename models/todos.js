@@ -5,6 +5,7 @@ class ToDo {
     this.id = todo.id || null;
     this.title = todo.title;
     this.category = todo.category;
+    this.status = todo.status;
     this.description = todo.description;
   }
 

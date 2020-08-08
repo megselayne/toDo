@@ -14,19 +14,19 @@ const todoController = {
             res.status(500).json({ err, message: err.message });
         });
     },
-    // show(req, res) {
-    //     ToDo.getById(req.params.id)
-    //     .then((todo) => {
-    //         res.render('todos/show', {
-    //             message: 'ok',
-    //             data: { todo },
-    //         })
-    //     })
-    //     .catch((err) => {
-    //         console.log(err);
-    //         res.status(500).json({ err, message: err.message });
-    //     });
-    // },
+    show(req, res) {
+        ToDo.getById(req.params.id)
+        .then((todo) => {
+            res.render('todos/show', {
+                message: 'ok',
+                data: { todo },
+            })
+        })
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json({ err, message: err.message });
+        });
+    },
     // create( req, res) {
     //     new ToDo({
     //         title: req.body.title,
