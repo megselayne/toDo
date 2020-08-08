@@ -1,6 +1,9 @@
 const ToDo = require('../models/todos');
 
 const todoController = {
+    //I made this call redundant when user-auth was implemented
+    //only here for hw documentation
+    //all get to-do calls go through user-controller
     index(req, res, next){
         ToDo.getAll()
         .then((todos) =>{
