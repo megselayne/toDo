@@ -1,6 +1,6 @@
 <%- include('../partials/boilerplate') %>
     <div class='container'>
-        <a href='/todos/add'>Add New Todo</a>
+        <a class='click' href='/todos/add'>Add New Todo</a>
         <% data.todos.forEach(element => { %>
             <div class='todo'>
                 <div class='top-row'>
@@ -8,7 +8,7 @@
                     <h1 class='todo-title'><%= element.title %></h1>
                     </div>
                     <div class='right'>
-                    <h2 class='todo-sub'><%= element.status %></h2>
+                    <h1 class='todo-sub'><%= element.status %></h2>
                     </div>
                 </div>
                 <div class='bottom-row'>
@@ -16,10 +16,14 @@
                         <h3><%= element.category %></h3>
                     </div>
                     <div class='right'>
-                        <a href='/todos/<%= element.id%>'>Learn More</a>
-                        <a href='/todos/<%= element.id%>/edit'>Edit</a>
+                        <button class='click'>
+                            <a class='click' href='/todos/<%= element.id%>'>Learn More</a>
+                        </button>
+                        <button class='click'>
+                            <a class='click' href='/todos/<%= element.id%>/edit'>Edit</a>
+                        </button>
                         <form method="POST" action="/todos/<%= element.id %>?_method=DELETE">
-                            <input type="submit" value="Delete">
+                            <input class='click' type="submit" value="Delete">
                           </form>
                     </div>
                 </div>

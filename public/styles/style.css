@@ -69,13 +69,59 @@ header {
   .button{
     text-decoration: none;
     color:white;
-    padding:10px 20px;
+    padding: 10px 20px;
     background-color: #17a1fa;
     border-radius: 5px;
   }
+  .todo{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    min-width: 25em;
+  }
+  .top-row{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    padding: .35em;
+  }
+  .bottom-row{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    padding: .35em;
+  }
+  .left{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-grow:1;
+  }
+  .right{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  .click{
+    margin: .25em;
+    padding: .25em;
+    text-decoration: none;
+    background-color:#17a1fa;
+    border: none;
+    color: white;
+    border-radius: 2px;
+    
+  }
+  /* .delete{
+    margin:0;
+    height:0;
+  } */
   footer{
     padding: 10px 20px;
-    height:100px;
+    height: 100px;
     background-color: #999;
     display: flex;
     justify-content: center;
