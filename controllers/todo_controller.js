@@ -27,15 +27,17 @@ const todoController = {
         });
     },
     create( req, res, next) {
+        console.log(req.user.id);
         new ToDo({
             title: req.body.title,
             category: req.body.category,
             status: req.body.status,
             description: req.body.description,
+            user_id: req.user.id,
         })
         .save()
-        .then(() =>{
-            res.redirect(`/todos`)
+        .then((todo) =>{
+            res.redirect(`/user`);
         })
         .catch((err) => {
             console.log(err);

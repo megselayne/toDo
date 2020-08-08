@@ -1,4 +1,5 @@
 const db = require('../db/config');
+const ToDo = require('../models/todos');
 
 class User {
   constructor({ id, username, email, password_digest }) {
@@ -27,6 +28,13 @@ class User {
         this
       )
       .then((savedUser) => Object.assign(this, savedUser));
+  }
+  findUserTodos() {
+    return db
+    .manyOrNone(`SELECT * FROM to_dos WHERE user_id = $1`, this.id)
+    .then((todos) =>{
+      return todos.map((todo) => new ToDo(todo));
+    });
   }
 }
 

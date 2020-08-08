@@ -7,6 +7,7 @@ class ToDo {
     this.category = todo.category;
     this.status = todo.status;
     this.description = todo.description;
+    this.user_id = todo.user_id || null;
   }
 
   static getAll() {
@@ -29,11 +30,13 @@ class ToDo {
   }
 
   save() {
+    //identified that user_id is not being passed from controller here.
+    //it's null
     return db
       .one(
         `
-      INSERT INTO to_dos (title, category, status, description)
-      VALUES ($/title/, $/category/, $/status/, $/description/)
+      INSERT INTO to_dos (title, category, status, description, user_id)
+      VALUES ($/title/, $/category/, $/status/, $/description/, $/user_id/)
       RETURNING *`,
         this
       )
