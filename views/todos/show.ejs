@@ -2,12 +2,17 @@
 
     <div class=container>
         <h1><%= data.todo.title %></h1>
-        <h2 class='todo-sub'><%= data.todo.status %></h2>
-        <h3><%= data.todo.category %></h3>
-        <h4><%= data.todo.description %></h4>
+        <h2>Status: <%= data.todo.status %></h2>
+        <h4>Description: <%= data.todo.description %></h4>
+        <div class='right'>
+            <a href='/todos/<%= data.todo.id%>/edit'>Edit</a>
+            <form method="POST" action="/todos/<%= data.todo.id %>?_method=DELETE">
+                <input type="submit" value="Delete">
+              </form>
+        </div>
     </div>
 
 
 
 
-<%- include('../partials/boilerplate') %>
+<%- include('../partials/end') %>

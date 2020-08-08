@@ -27,22 +27,42 @@ const todoController = {
             res.status(500).json({ err, message: err.message });
         });
     },
-    // create( req, res) {
-    //     new ToDo({
-    //         title: req.body.title,
-    //         category: req.body.category,
-    //         description: req.body.category,
-    //     })
-    //     .save()
-    //     .then(() =>{
-    //         res.redirect(`/todos`)
-    //     })
-    //     .catch((err) => {
-    //         console.log(err);
-    //         res.status(500).json({ err, message: err.message });
-    //     });
-    // }
-    //add update, delete controllers
+    create( req, res) {
+        new ToDo({
+            title: req.body.title,
+            category: req.body.category,
+            status: req.body.status,
+            description: req.body.description,
+        })
+        .save()
+        .then(() =>{
+            res.redirect(`/todos`)
+        })
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json({ err, message: err.message });
+        });
+    },
+    update(req,res){
+        ToDo.getById(req.params.id)
+        .then((todo) =>{
+            return todo.update(req.body);
+        })
+        .then((updatedTodo) => {
+            res.render('todos/edit', {
+                data: { updatedTodo } 
+            });
+          });
+      },
+      destroy(req, res) {
+        ToDo.getById(req.params.id)
+        .then((todo) => {
+            return todo.delete();
+        })
+        .then(() => {
+            res.redirect('/todos');
+        });
+      }
 }
 
 

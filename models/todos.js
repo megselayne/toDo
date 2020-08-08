@@ -32,8 +32,8 @@ class ToDo {
     return db
       .one(
         `
-      INSERT INTO to_dos (name, cuteness, species, location)
-      VALUES ($/name/, $/cuteness/, $/species/, $/location/)
+      INSERT INTO to_dos (title, category, status, description)
+      VALUES ($/title/, $/category/, $/status/, $/description/)
       RETURNING *`,
         this
       )
@@ -48,10 +48,10 @@ class ToDo {
       .oneOrNone(
         `
       UPDATE to_dos SET
-        name = $/name/,
-        cuteness = $/cuteness/,
-        species = $/species/,
-        location = $/location/
+        title = $/title/,
+        category = $/category/,
+        status = $/status/,
+        description = $/description/
       WHERE id = $/id/
       RETURNING *
     `,
