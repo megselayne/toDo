@@ -14,20 +14,19 @@ const todoController = {
             res.status(500).json({ err, message: err.message });
         });
     },
-    show(req, res) {
+    show(req, res, next) {
         ToDo.getById(req.params.id)
         .then((todo) => {
-            res.render('todos/show', {
-                message: 'ok',
-                data: { todo },
-            })
+            res.locals.todo = todo;
+            console.log(res.locals.todo);
+            next();
         })
         .catch((err) => {
             console.log(err);
             res.status(500).json({ err, message: err.message });
         });
     },
-    create( req, res) {
+    create( req, res, next) {
         new ToDo({
             title: req.body.title,
             category: req.body.category,
@@ -43,18 +42,17 @@ const todoController = {
             res.status(500).json({ err, message: err.message });
         });
     },
-    update(req,res){
+    update(req, res, next){
         ToDo.getById(req.params.id)
         .then((todo) =>{
             return todo.update(req.body);
         })
         .then((updatedTodo) => {
-            res.render('todos/edit', {
-                data: { updatedTodo } 
-            });
-          });
+            res.redirect(`/todos/${updatedTodo.id}`);
+          })
+          .catch(next);
       },
-      destroy(req, res) {
+      destroy(req, res, next) {
         ToDo.getById(req.params.id)
         .then((todo) => {
             return todo.delete();
