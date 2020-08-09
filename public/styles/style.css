@@ -70,7 +70,7 @@ header {
     margin-top: 6em;
   }
   
-  input[type=text] {
+  input[type=text], input[type=password], input[type=email]{
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -129,6 +129,12 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+  .bottom{
+    display:flex;
+    flex-direction: row;
+    color:black;
+    margin-top: 7em;
   }
   footer{
     padding: 10px 20px;
