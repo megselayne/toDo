@@ -54,6 +54,9 @@ header {
   a:hover {
     border-bottom-color: #17a1fa;
   }
+  .active{
+    border-bottom: 3px solid #17a1fa;
+  }
   
   img{
     height:50px;
