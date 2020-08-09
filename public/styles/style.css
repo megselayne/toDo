@@ -1,5 +1,6 @@
 body{
   margin:0;
+  font-family: 'Roboto', sans-serif;
 }
 .jumbo{
   height:100vh;
@@ -47,13 +48,9 @@ header {
   
   nav ul li:hover {
     /* background-color: rgba(0,0,0,0.5); */
-    text-decoration: underline;
     background-color:#17a1fa;
   }
-  
-  a:hover {
-    border-bottom-color: #17a1fa;
-  }
+
   .active{
     border-bottom: 3px solid #17a1fa;
   }
@@ -69,6 +66,20 @@ header {
     align-items:center;
     flex-grow:1;
   }
+  .margin-top{
+    margin-top: 6em;
+  }
+  
+  input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
   .todo{
     display: flex;
     flex-direction: column;
@@ -110,6 +121,9 @@ header {
     color: white;
     border-radius: 2px;
     
+  }
+  .big{
+    padding: .5em 1.5em;
   }
   .row{
     display: flex;

@@ -13,6 +13,9 @@ todoRouter.get('/:id([0-9]+)', todoController.show, (req,res) =>{
 todoRouter.get('/add', authHelpers.loginRequired,(req, res) =>{
     res.render('todos/add');
 })
+todoRouter.get('/about', (req,res) =>{
+    res.render('todos/about');
+})
 todoRouter.post('/', todoController.create);
 todoRouter.get('/:id([0-9])+/edit', todoController.show, (req, res) =>{
     res.render('todos/edit', {
