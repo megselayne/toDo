@@ -1,9 +1,10 @@
 body{
   margin:0;
   font-family: 'Roboto', sans-serif;
+  color: #333;
 }
 .jumbo{
-  height:100vh;
+  height:88vh;
   display: flex;
   flex-direction: column;
 
@@ -22,7 +23,6 @@ header {
   nav ul {
     display: flex;
     padding: 10px 5vw;
-    /* text-align: center; */
     list-style: none;
   }
   
@@ -30,9 +30,8 @@ header {
     padding: 10px 20px;
     color: white;
     cursor: pointer;
-    font-weight: 800;
     letter-spacing: 1px;
-    font-size: 3em;
+    font-size: 2em;
     transition: 0.5s;
   }
   .left{
@@ -58,9 +57,10 @@ header {
   img{
     height:50px;
     width: auto;  
-    margin-left: 10px;
+    margin-left: 2em;
   }
   .container{
+    margin-top: 3em;
     display: flex;
     flex-direction: column;
     align-items:center;
@@ -79,17 +79,25 @@ header {
     border-radius: 4px;
     box-sizing: border-box;
   }
-
+  .single-todo{
+    margin-top: 3em;
+    display: flex;
+    flex-direction:column;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    padding: 5px;
+  }
   .todo{
+    margin-top: 3em;
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    border: 1px solid #ccc;
     min-width: 25em;
   }
   .top-row{
     display: flex;
     flex-direction: row;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #ccc;
     align-items: flex-end;
     flex-wrap: wrap;
     padding: .35em;
@@ -133,12 +141,12 @@ header {
   .bottom{
     display:flex;
     flex-direction: row;
-    color:black;
+    color:grey;
     margin-top: 7em;
   }
   footer{
     padding: 10px 20px;
-    height: 100px;
+    height: 70px;
     background-color: #999;
     display: flex;
     justify-content: center;
@@ -146,4 +154,18 @@ header {
     color:white;
     font-size: 1.5em;
   }
-  
+  @media (max-width:700px) {
+    h1,h2,h3,h4{
+        text-align: center;
+    }
+    img{
+      height:30px;
+      width: auto;  
+      margin-left: 1em;
+    }
+    nav ul li {
+      padding: 10px 20px;
+      font-size: 1.25em;
+      transition: 0.5s;
+    }
+  }

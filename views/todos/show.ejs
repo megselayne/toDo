@@ -1,20 +1,22 @@
 <%- include('../partials/boilerplate') %>
 
     <div class='container'>
-        <h1><%= todo.title %></h1>
-        <h2>Status: <%= todo.status %></h2>
-        <h4>Description: <%= todo.description %></h4>
-        <div class='right'>
-            <button class='click big'>
-                <a class='click' href='/todos/<%= todo.id %>/edit'>Edit</a>
-            </button>
-            <form method="POST" action="/todos/<%= todo.id %>?_method=DELETE">
-                <input class='click big' type="submit" value="Delete">
-            </form>
+        <div class='single-todo'>
+            <h1><%= todo.title %></h1>
+            <h2>Status: <%= todo.status %></h2>
+            <h4>Description: <%= todo.description %></h4>
+            <div class='right'>
+                <button class='click big'>
+                    <a class='click' href='/todos/<%= todo.id %>/edit'>Edit</a>
+                </button>
+                <form method="POST" action="/todos/<%= todo.id %>?_method=DELETE">
+                    <input class='click big' type="submit" value="Delete">
+                </form>
+            </div>
         </div>
         <div class='bottom'>
-                <a class='bottom' href='/user'><----Back to List</a>
-        </div>
+                    <a class='bottom' href='/user'><----Back to List</a>
+            </div>
     </div>
 
 
